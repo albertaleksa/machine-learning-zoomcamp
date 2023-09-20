@@ -125,14 +125,25 @@ _[Original instructions](https://github.com/DataTalksClub/machine-learning-zoomc
         ```
 9. **IMPORTANT**: Log out and log back in so that your group membership is re-evaluated.
 
-10. Create a condo environment with specific version of python (if needed):
+10. Create a condo environment with specific version of python:
     ```
-    conda create -n py310 python=3.10 anaconda
+    conda create -n ml-zoomcamp python=3.10
     ```
     Activate this env:
     ```
-    conda activate py310
+    conda activate ml-zoomcamp
     ```
+11. Install libraries:
+    ```
+    conda install numpy pandas scikit-learn seaborn jupyter
+    ```
+12. Install Jupyter Notebook:
+    ```
+    mkdir notebooks
+    cd notebooks
+    jupyter notebook
+    ```
+    Add port forwarding for port 8888 in Visual Code (or PyCharm Pro)
 
 
 _[Back to the top](#setting-up-the-environment)_
