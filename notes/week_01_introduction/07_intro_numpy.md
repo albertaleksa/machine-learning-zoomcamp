@@ -2,72 +2,182 @@
 >
 >Previous Theme: [Setting up the Environment](06_environment.md)
 >
->Next Theme: 
+>Next Theme: [Linear Algebra Refresher](08_linear_algebra.md)
 
 ## Introduction to NumPy
-_[Video source](https://www.youtube.com/watch?v=OH_R0Sl9neM&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=6)_
+_[Video source](https://www.youtube.com/watch?v=Qa0-jYtRdbY&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=7
+)_
 
-_[Slides](https://www.slideshare.net/AlexeyGrigorev/ml-zoomcamp-15-model-selection-process)_
+**NumPy** (Numerical Python) is a fundamental package for scientific computing in Python. It provides a high-performance multidimensional array object, as well as tools for working with these arrays. NumPy is essential for conducting numerical computations and serves as the foundational package for many other scientific computing libraries in the Python ecosystem.
 
-### Introduction
-The process of selecting the best model.
-
-
-### Holdout + Train
-Take a portion of DATA (e.g., 20%) and hide it. Use only remaining 80% for **Training**. The 20% is used for **Validation**.
-![hide](images/05_model_selection_process_01_hide.png)
+### Import numpy
+```
+import numpy as np
+```
 
 
-### Making Predictions
-Extract the  **Feature Matrix (X)** and **Target (y)** from *Training DATA* and train our **Model(g)**.
-<br>Then, from the *Validation DATA* extract another **Feature Matrix ($X_v$)** and **Target ($y_v$)** which our Model hasn't seen.
-<br>After that, apply our **Model(g)** to the *Validation* dataset and get some predictions $\hat{y}$ and compare them with **Target($y_v$)**.
-<br>
-<br>$g(X_v)=\hat{y}_v$
-![making_predictions](images/05_model_selection_process_02_making_predictions.png)
+### Creating arrays
 
-As a result of camparing, we obtain accuracy for our model:
-![model_accurate](images/05_model_selection_process_03_model_accurate.png)
+```
+np.zeros(5) # array size of 5 with zeros
+>> array([0., 0., 0., 0., 0.])
 
+np.ones(10) # array size of 10 with ones
+>> array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
 
-### Scoring
-Repeat the process for different types of models and choose the model with the best accuracy:
-* Logistic Regression
-* Decision Tree
-* Random Forest
-* Neural Network
+np.full(10, 2.5)    # array size of 10 with some arbitrary number (2.5)
+>> array([2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5])
 
-![accuracy](images/05_model_selection_process_04_accuracy.png)
+# convert a python list to array
+np.arange(3, 10)
+>> array([3, 4, 5, 6, 7, 8, 9])
 
-### Multiple Comparisons Problem
-A model might be lucky and achieve good predictions by chance since these methods are probabilistic.
-![probabilistic](images/05_model_selection_process_05_probabilistic.png)
+# create a range
+np.arange(10)
+>> array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
+# create an array and fills with numbers between first and second parameter:
+np.linspace(0, 1, 11)
+>> array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ])
+```
 
-### Train + Validation + Test
-To address the above problem, instead of holding 1 dataset, we hold 2 datasets. We split the dataset into:
-* Training
-* Validation
-* Test
+### Multi-dimensional arrays
 
-Then, find the best Model using the **Trining** and **Validation** datasets.Apply this Model to the **Test** dataset to ensure that the Model chosen is actually the best one.
+```
+# create an array with 5 rows and 2 columns and fill it with '0':
+np.zeros((5, 2))
 
-![train_val_test](images/05_model_selection_process_06_train_val_test.png)
+>> array([[0., 0.],
+       [0., 0.],
+       [0., 0.],
+       [0., 0.],
+       [0., 0.]])
 
-### Further scoring
-![further_scoring](images/05_model_selection_process_07_further_scoring.png)
+# Create an array from python list:
+np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
 
-### Model Selection (6 steps)
-1. **Split** the Dataset into 3 parts.
-2. **Train** a model.
-3. Apply the Model to the **Validaion** dataset.
-4. Repeat steps 2 and 3 multiple times for different Models and **Select** the best one.
-5. Apply the best Model to the **Test** dataset.
-6. **Check** if everything is satisfactory.
-![model_selection](images/05_model_selection_process_08_model_selection.png)
-
-In this approach, we use the **Validation** dataset only once. Thus, we combain the **Training** and **Validation** datasets and retrain our best model with them (between steps 4 and 5). This should help improve the model.
-![combain](images/05_model_selection_process_09_combain.png)
+>> array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+```
 
 
-_[Back to the top](#model-selection-process)_
+```
+n[0]    # Get the first row from the array
+>> array([1, 2, 3])
+
+
+n[:, 0] # Get the first column from the array
+>> array([1, 4, 7])
+```
+
+### Randomly generated arrays
+
+Random numbers from Standard uniform distribution (matrix 5x2):
+
+```
+np.random.seed(2)   # for reproducibility
+np.random.rand(5, 2)    # Generates random numbers between 0 and 1
+
+array([[0.4359949 , 0.02592623],
+       [0.54966248, 0.43532239],
+       [0.4203678 , 0.33033482],
+       [0.20464863, 0.61927097],
+       [0.29965467, 0.26682728]])
+```
+
+Random numbers from Standard normal distribution:
+```
+np.random.seed(2)   # for reproducibility
+np.random.randn(5, 2)    # Generates random numbers from Standard normal distribution
+
+array([[-0.41675785, -0.05626683],
+       [-2.1361961 ,  1.64027081],
+       [-1.79343559, -0.84174737],
+       [ 0.50288142, -1.24528809],
+       [-1.05795222, -0.90900761]])
+```
+
+Generate random integers:
+```
+np.random.seed(2)
+np.random.randint(low=0, high=100, size=(5, 2))
+
+array([[40, 15],
+       [72, 22],
+       [43, 82],
+       [75,  7],
+       [34, 49]])
+```
+
+### Element-wise operations
+
+Perform different operations with every element from array:
+```
+a =np.arange(5)
+a
+>> array([0, 1, 2, 3, 4])
+
+a + 1
+>> array([1, 2, 3, 4, 5])
+
+a * 2
+>> array([0, 2, 4, 6, 8])
+
+```
+
+Perform different operations with 2 arrays of the same shape (element by element):
+```
+b =np.arange(2, 7)
+b
+>> array([2, 3, 4, 5, 6])
+
+a + b
+>> array([ 2,  4,  6,  8, 10])
+```
+
+### Comparison operations
+
+Compare every element from array to number or other array's element
+```
+a >= 2
+>> array([False, False,  True,  True,  True])
+
+a > b
+>> array([False, False, False, False, False])
+```
+
+Select elements of array based on certain condition:
+```
+a[a >= 2]
+>> array([2, 3, 4])
+
+a[a > b]
+>> array([], dtype=int64)
+```
+
+### Summarizing operations
+
+Return a single number instead of a new array
+```
+a
+>> array([0, 1, 2, 3, 4])
+
+a.min()
+>> 0
+a.max()
+>> 4
+a.sum()
+>> 10
+a.mean()    # average (mean) value
+>> 2.0
+a.std()     # Standard deviation
+>> 1.4142135623730951
+```
+
+
+_[Back to the top](#introduction-to-numpy)_

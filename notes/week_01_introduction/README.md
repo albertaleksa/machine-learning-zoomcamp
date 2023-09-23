@@ -13,6 +13,9 @@
 - [Model Selection Process](05_model_selection_process.md)
 - [Setting up the Environment](06_environment.md)
 - [Introduction to NumPy](07_intro_numpy.md)
+- [Linear Algebra Refresher](08_linear_algebra.md)
+- [Introduction to Pandas](09_pandas.md)
+- [Summary](10_summary.md)
 
 
 - [Homework](#homework)
