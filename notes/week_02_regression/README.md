@@ -1,13 +1,15 @@
 >[Back to Main course page](../README.md)
 >
->Next Week: [2: Machine Learning for Regression](../week_02_regression/README.md)
+>Previous Week: [1: Introduction to Machine Learning](../week_01_introduction/README.md)
+>
+>Next Week: [3: Machine Learning for Classification](../week_03_/README.md)
 
 
-## Week 1: Introduction to Machine Learning
+## Week 2: Machine Learning for Classification
 
 ### Table of contents
-- [Introduction to Machine Learning](01_intro.md)
-- [ML vs Rule-Based Systems](02_ml_vs_rule_based.md)
+- [Car price prediction project](01_car_price_intro.md)
+- [Data preparation](02_data_preparation.md)
 - [Supervised Machine Learning](03_supervised_ml.md)
 - [CRISP-DM](04_crisp_dm.md)
 - [Model Selection Process](05_model_selection_process.md)
