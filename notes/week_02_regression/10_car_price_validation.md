@@ -7,30 +7,41 @@
 ## Using RMSE on validation data
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=21)_
 
-We need to quantify how bad our Model is.
+### Validating machine learning model using validation data.
 
-### RMSE Formula
+We trained our **Linear Regression Model** using **TRAIN** Dataset and then we again applied it to our **TRAIN** Dataset to calculate **RMSE**(Root mean squared error).
 
-$$RMSE = \sqrt{ \frac{1}{m} \displaystyle\sum_{i=1}^m {(g(x_i) - y_i)^2}}$$
+![train](images/10_car_price_validation_01_train.png)
 
-- $g(x_i)$ - the prediction for $x_i$
-- $y_i$ - the actual value
-- $m$ - the number of observations in the dataset (i.e. cars)
+Instead of applying Model to **TRAIN** Dataset we should apply it to **VALIDATION** Dataset and calculate **RMSE**.
 
-![rmse](images/09_rmse_01_rmse.png)
+![valid](images/10_car_price_validation_02_valid.png)
 
-### RMSE Python Implementation
 
-```python
-def rmse(y, y_pred):
-    se = (y - y_pred) ** 2
-    mse = se.mean()
-    return np.sqrt(mse)
-```
+### Creating feature matrix with prepare x function.
 
 ```python
-rmse(y_train, y_pred)
->> 0.7554192603920132
+def prepare_X(df):
+    df_num = df[base]
+    df_num = df_num.fillna(0)
+    X = df_num.values
+    return X    
 ```
 
-_[Back to the top](#root-mean-squared-error)_
+### Training and validating linear regression model.
+
+
+```python
+X_train = prepare_X(df_train)
+w0, w = train_linear_regression(X_train, y_train)
+
+X_val = prepare_X(df_val)
+y_pred = w0 + X_val.dot(w)
+
+rmse(y_val, y_pred)
+```
+
+![valid_code](images/10_car_price_validation_03_valid_code.png)
+
+
+_[Back to the top](#using-rmse-on-validation-data)_

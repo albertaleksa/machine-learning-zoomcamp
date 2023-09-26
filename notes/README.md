@@ -6,7 +6,7 @@ Original content: https://github.com/DataTalksClub/machine-learning-zoomcamp
 
 
 - [Week 1: Introduction to Machine Learning](week_01_introduction/README.md)
-- [Week 2: Machine Learning for Regression]()
+- [Week 2: Machine Learning for Regression](week_02_regression/README.md)
 - [Week 3: Machine Learning for Classification]()
 - [Week 4: Evaluation Metrics for Classification]()
 - [Week 5: Deploying Machine Learning Models]()

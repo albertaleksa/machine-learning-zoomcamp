@@ -17,7 +17,6 @@
 - [Training linear regression: Normal equation](07_linear_regression_training.md)
 - [Baseline model for car price prediction project](08_baseline_model.md)
 - [Root mean squared error](09_rmse.md)
-
 - [Using RMSE on validation data](10_car_price_validation.md)
 - [Feature engineering](11_feature_engineering.md)
 - [Categorical variables](12_categorical_variables.md)
@@ -26,6 +25,7 @@
 - [Using the model](15_using_model.md)
 - [Car price prediction project summary](16_summary.md)
 - [Explore more](17_explore_more.md)
+
 
 - [Summary](10_summary.md)
 - [Homework](11_homework.md)

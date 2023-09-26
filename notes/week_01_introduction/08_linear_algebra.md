@@ -37,11 +37,11 @@ _[Slides](https://www.slideshare.net/AlexeyGrigorev/ml-zoomcamp-18-linear-algebr
 
 ### Vector-vector multiplication (dot product)
 ![dot_product](images/08_linear_algebra_03_dot_product.png)
-$u \cdot v = \sum_{i=1}^n u_iv_i$
+$u \cdot v = \displaystyle\sum_{i=1}^n u_iv_i$
 
 Transpose operation - turn a column vector into a row vector.
 ![dot_product_2](images/08_linear_algebra_04_dot_product_2.png)
-$v^T \cdot u = \sum_{i=1}^n u_iv_i$
+$v^T \cdot u = \displaystyle\sum_{i=1}^n u_iv_i$
 
 ```
 def vector_vector_multiplication(u, v):
@@ -148,7 +148,7 @@ w_{m-10} & w_{m-11} & \dots & w_{m-1p-1} \\
 \end{bmatrix}
 $
 
-where $w_{ij} = \sum_{k=0}^{n-1} u_{ik}v_{kj}$, 
+where $w_{ij} = \displaystyle\sum_{k=0}^{n-1} u_{ik}v_{kj}$, 
 for $i = 0, \dots, m-1$ and $j = 0, \dots, p-1$
 
 ```

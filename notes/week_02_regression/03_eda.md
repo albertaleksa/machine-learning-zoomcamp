@@ -30,6 +30,13 @@ For visualization use librarires:
 * seaborn
 
 ```
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+%matplotlib inline
+```
+
+```
 sns.histplot(df.msrp, bins=50)
 ```
 
@@ -45,7 +52,7 @@ This kind of distribution (Long tail distribution) is not very good for ML, this
 
 Then we need to get rid of this long tail. To do this, we apply the **logarithmic distribution**.
 
-We apply the logarith to the price and get more compact values. Because the $\log{0}$ doesn't exist we add '1' to all the elements. There is a function in NumPy that do this for us (1p means 'plus 1'):
+We apply the logarithm to the price and get more compact values. Because the $\log{0}$ doesn't exist we add '1' to all the elements. There is a function in NumPy that do this for us (1p means 'plus 1'):
 ```
 np.log1p([0, 1, 10, 1000, 100000])
 ```
