@@ -7,8 +7,6 @@
 ## Setting up the validation framework
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=15)_
 
-_[Slides](Setting up the validation framework)_
-
 
 ### Intro
 

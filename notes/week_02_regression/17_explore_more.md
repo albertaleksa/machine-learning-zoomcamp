@@ -12,6 +12,7 @@
 
 > That's not a graded homework, it's just for you if you want to try more things on this project
 
+[My Solution](week_2_explore_more.ipynb)
 
 ### Other projects
 
