@@ -18,6 +18,5 @@ _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhx
 
 ```
 
-![car_price](images/15_using_model_07_car_price.png)
 
 _[Back to the top](#car-price-prediction-project-summary)_
