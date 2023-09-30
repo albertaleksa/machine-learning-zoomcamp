@@ -7,18 +7,22 @@
 ## Using RMSE on validation data
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=21)_
 
-### Validating machine learning model using validation data.
+### Validating the Machine Learning Model with Validation Data
 
 We trained our **Linear Regression Model** using **TRAIN** Dataset and then we again applied it to our **TRAIN** Dataset to calculate **RMSE**(Root mean squared error).
 
+After training our **Linear Regression Model** on the **TRAIN** dataset, we initially used the same dataset to calculate the **RMSE (Root Mean Squared Error)**.
+
+
 ![train](images/10_car_price_validation_01_train.png)
 
-Instead of applying Model to **TRAIN** Dataset we should apply it to **VALIDATION** Dataset and calculate **RMSE**.
+For a more robust evaluation, we should apply the model to a **VALIDATION** dataset and calculate the **RMSE** there.
+
 
 ![valid](images/10_car_price_validation_02_valid.png)
 
 
-### Creating feature matrix with prepare x function.
+### Creating feature matrix with prepare_x function.
 
 ```python
 def prepare_X(df):

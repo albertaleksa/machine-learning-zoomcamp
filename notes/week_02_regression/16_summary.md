@@ -4,29 +4,27 @@
 >
 >Next Theme: [Explore more](17_explore_more.md)
 
-## Car price prediction project summary
+## Car Price Prediction Project Summary
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=27)_
 
 
-### Summary project
+### Project Summary
 
-We did the project that predicting the prices of cars (MSRP) using other characteristics (Model, make, year, engine hp, ..).
+In this project, we predicted car prices (MSRP) using various characteristics such as the model, make, year, engine horsepower, etc. Here's a summary of the 
 
-1. Cleaned dataset (replaced spaces to '_', convert to lower case)
-2. Did Exploratery Data Analysis and identify that we have a long tail distribution of the price. Removed a long tail by applying the logarithmic transformation to data. Because Usually ML Models has problems with a long tail distribution.
-3. Did a Validation Framework. Split data between **TRAIN**, **VALIDAION** and **TEST** datasets.
-4. Implemented Linear Regression. The result of Linear Regression is the weights vector.
-5. Implemented the train ML Model using Normal equation formula.
-6. Used this implemetation to train a Model.
-7. Implemeted the metric to measure the performance of a Model (Root mean squared error). it's a metric for evaluating the quality of a regression model.
-8. Build a Validation Framework. Created a function **prepare_X()**, which allowed to have the same way of preparing Feature Matrix for different datasets (TRAIN, VAL).
-9. Did simple Feature engineering - the process of creating new features from existing ones.
-10. Looked how to integrate the categorical variables, using bunch of binary features.
-11. Then performance of our Model degrated significantly (a huge RMSE), because of the numerical instability.
-12. We used regularization to solve he numerical instability. We added a small number to the diagonal of Matrix XTX before inverting it. Performance of the Model was increased.
-13. We tried different values of the regularization parameter to find out the best one.
-14. Combined **TRAIN** and **VAL** datasets to train a Final Model. Validated Model on the **TEST** dataset and compared RMSE with previous.
-15. Applied a Model to car which we don't know the price (from TEST dataset) and compared a predicted price with real.
-
+1. Cleaned the dataset by replacing spaces with underscores and converting text to lowercase.
+2. Conducted Exploratory Data Analysis and identified that the price has a long-tail distribution. We applied a logarithmic transformation to the data to address this, as machine learning models often struggle with long-tail distributions.
+3. Established a Validation Framework by splitting the data into **TRAIN**, **VALIDATION**, and **TEST** datasets.
+4. Implemented Linear Regression. The outcome of Linear Regression is a vector of weights.
+5. Utilized this implementation to train the model.
+6. Implemented a metric (Root Mean Squared Error, or RMSE) to measure the model's performance. RMSE is commonly used for evaluating the quality of regression models.
+7. Built a Validation Framework by creating a function **prepare_X()**. This function standardizes the way we prepare the Feature Matrix for different datasets (TRAIN, VALIDATION).
+8. Engaged in simple Feature Engineering, creating new features from existing ones.
+9. Integrated categorical variables by using binary features.
+10. Noticed a significant degradation in model performance, indicated by a high RMSE, likely due to numerical instability.
+11. Applied regularization to address the numerical instability, adding a small number to the diagonal of the $X^T X$ matrix before inverting it. This improved the model's performance.
+12. Experimented with different values for the regularization parameter to identify the optimal setting.
+13. Combined the **TRAIN** and **VALIDATION** datasets to train the final model. We validated the model on the **TEST** dataset and compared the RMSE to previous results.
+14. Finally, we applied the model to a car from the TEST dataset whose price was unknown, and compared the predicted price to the actual price.
 
 _[Back to the top](#car-price-prediction-project-summary)_

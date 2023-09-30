@@ -9,21 +9,21 @@ _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhx
 
 ### What is Linear Regression
 
-**Linear Regression** - is a Model that we use for solving Regression problems for predicting numbers.
+**Linear Regression** is a model used for solving regression problems, aimed at predicting numerical values.
 
 ![formula](images/05_linear_regression_simple_01_formula.png)
 
 ### Simplified form
 
-Look at one car at the same time, not at all:
+Examine one car at a time, instead of the entire dataset:
 ![simple](images/05_linear_regression_simple_02_simple.png)
 
-### Example on training data
+### Example Using Training Data
 
-Take, for example row number 10 from **Training** dataset and get only 'engine_hp', 'city_mpg' and 'popularity' column:
+For example, take row number 10 from the **Training** dataset and focus on the 'engine_hp,' 'city_mpg,' and 'popularity' columns:
 ![ex](images/05_linear_regression_simple_03_ex.png)
 
-We need to find function $g(x_i)$
+The objective is to find the function $g(x_i)$.
 
 ![ex2](images/05_linear_regression_simple_04_ex2.png)
 
@@ -31,13 +31,15 @@ We need to find function $g(x_i)$
 
 ### Implementation
 
+The general form of the linear regression equation is:
+
 ![lin_reg](images/05_linear_regression_simple_06_lin_reg.png)
 
 $g(x_i) = w_0 + x_{i1} \cdot w_1 + x_{i2} \cdot w_2 + ... + x_{in} \cdot w_n$
 
 $g(x_i) = w_0 + \displaystyle\sum_{j=1}^{n} w_j \cdot x_{ij}$
 
-where $w_0$ - bias term
+where $w_0$ is the bias term.
 
 ![lin_reg2](images/05_linear_regression_simple_07_lin_reg2.png)
 
@@ -72,9 +74,9 @@ linear_regression(xi)
 
 ![exp](images/05_linear_regression_simple_09_exp.png)
 
-### Getting exponents
+### Converting Predictions
 
-To get price from prediction we need to get exponent ('-1' to undo the '+1' we did inside log):
+To convert the logarithmic prediction back to the original price, you can use:
 ```python
 np.exp(12.312) - 1
 >> 222347.2221101062

@@ -8,13 +8,14 @@
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=22)_
 
 
-### Adding car age variable to model.
+### Adding the Car Age Variable to the Model
 
 ![age](images/11_feature_engineering_01_age.png)
 
-### Modifying data frame to add feature.
+### Modifying the DataFrame to Add the Feature
 
-Add new feature **age** to our Model in function **def prepare_X(df)**:
+We add a new feature, **age**, to our model in the function `prepare_X(df)`:
+
 ```python
 def prepare_X(df):
     df['age'] = 2017 - df.year
@@ -28,13 +29,13 @@ def prepare_X(df):
 X_train = prepare_X(df_train)
 ```
 
-But in this way we modified our dataframe (added new column 'age')
+However, this approach modifies our DataFrame by adding a new column, 'age'.
 
 ![modify](images/11_feature_engineering_02_modify.png)
 
-### Function creates copy to avoid data modification.
+### Creating a Copy to Avoid DataFrame Modification
 
-Create a copy of dataframe at the beginning of the function **prepare_X(df)** to avoid a modification of the input dataframe
+To prevent modification of the input DataFrame, we create a copy at the beginning of the prepare_X(df) function:
 
 ```python
 def prepare_X(df):
@@ -49,9 +50,10 @@ def prepare_X(df):
     return X
 ```
 
-### Improved model with validation data set.
+### Improved Model with Validation Data Set
 
-Now train our Model using modified **prepare_X()** function
+We now train our model using the modified **prepare_X()** function:
+
 ```python
 X_train = prepare_X(df_train)
 w0, w = train_linear_regression(X_train, y_train)
@@ -63,9 +65,9 @@ rmse(y_val, y_pred)
 >> 0.5172055461058335
 ```
 
-And we see, that our Model was improved:
-* Now RMSE = 0.5172055461058335
-* Before RMSE = 0.7616530991301601
+We observe an improvement in our model:
+* New RMSE = 0.5172055461058335
+* Previous RMSE = 0.7616530991301601
 
 Now see the plot:
 ```python
