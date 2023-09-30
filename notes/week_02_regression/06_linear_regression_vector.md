@@ -9,23 +9,23 @@ _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhx
 
 ### Recap
 
-Now we generalize formula: go from $x_i$ to $X$.
+We are generalizing the formula from $x_i$ to $X$.
 
-### Recap of linear regression - single vector
+### Recap of Linear Regression - Single Vector
 
 $g(x_i) = w_0 + \displaystyle\sum_{j=1}^{n} w_j \cdot x_{ij}$
 
-### Linear regression - vector form - dot product
+### Linear Regression in Vector Form - Dot Product
 
-Because $\displaystyle\sum_{j=1}^{n} w_j \cdot x_{ij}$ - dot product (vector-vector multiplication), we can rewrite:
+Since $\displaystyle\sum_{j=1}^{n} w_j \cdot x_{ij}$ is a dot product (vector-vector multiplication), we can rewrite:
 
 $g(x_i) = w_0 + \displaystyle\sum_{j=1}^{n} w_j \cdot x_{ij} = w_0 + x_i^Tw$
 
 ![dot_product](images/06_linear_regression_vector_01_dot_product.png)
 
-### Linear regression - dot product implementation
+### Linear Regression - Dot Product Implementation
 
-Simplify using dot product:
+Simplify the formula using dot product:
 
 ```python
 def dot(xi, w):
@@ -42,19 +42,19 @@ def linear_regression(xi):
     return w0 + dot(xi, w)    
 ```
 
-### Linear regression - shorter notation
+### Linear Regression - Shorter Notation
 
 
 
 ![dot_product2](images/06_linear_regression_vector_02_dot_product2.png)
 
-$w = [w_0 w_1 w_2 \dots w_n]$
+$w = [w_0, w_1, w_2, \dots, w_n]$
 
-$x_i = [x_{i0} x_{i1} x_{i2} \dots x_{in}]$, where $x_{i0} = 1$
+$x_i = [x_{i0}, x_{i1}, x_{i2}, \dots, x_{in}]$, where $x_{i0} = 1$
 
 $w^Tx_i = x_i^Tw = w_0 + \dots$
 
-Then we can use dot product notation for the entire Linear Regression.
+Then, we can use dot product notation for the entire Linear Regression model.
 
 ![short_not](images/06_linear_regression_vector_03_short_not.png)
 
@@ -69,7 +69,7 @@ linear_regression(xi)
 >> 12.312
 ```
 
-### All Examples - matrix notation
+### Matrix Notation for All Examples
 
 ![matrix](images/06_linear_regression_vector_04_matrix.png)
 
@@ -95,7 +95,7 @@ x_m^Tw \\
 \end{bmatrix}
 $
 
-### Perform matrix vector multiplication
+### Perform Matrix-Vector Multiplication
 
 ```python
 w0 = 7.17

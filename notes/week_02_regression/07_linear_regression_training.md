@@ -7,20 +7,18 @@
 ## Training linear regression: Normal equation
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=18)_
 
-### Recap
-
 
 ### Problem Description
 
 ![problem](images/07_linear_regression_training_01_problem.png)
-Idealy we want:
+Ideally, we want:
 
 $Xw = y$
 
 ### LR Simple Equation Solution
 
-Then we need to find $w$.
-Let's say, that $X$ is invertable. This means there exists $X^{-1}$ which is an inverse. Then we multiply both parts of our equation by $X^{-1}$:
+We need to find $w$.
+Assuming that $X$ is invertible. This means there exists $X^{-1}$ which is an inverse. Then we multiply both parts of our equation by $X^{-1}$:
 
 ![simple_sol](images/07_linear_regression_training_02_simple_sol.png)
 
@@ -34,8 +32,8 @@ $w = X^{-1}y$
 
 ### LR Simple Equation Solution Issues
 
-Because $X$ is a rectangular matrix and it's not square then the inverse matrix doesn't exist.
-And the solution doesn't exist. We try to find an approximate solution to this.
+Since $X$ is usually a rectangular matrix, it is not square, and its inverse might not exist.
+And the solution doesn't exist. Therefore, we seek an approximate solution.
 
 ### LR Normal Equation Solution
 

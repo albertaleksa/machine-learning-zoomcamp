@@ -8,33 +8,34 @@
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=24)_
 
 
-### Problem description - Linear Combination
+### Problem Description - Linear Combination
 
-Formual for normal equation:
+The formula for the normal equation is:
 
 $w = (X^TX)^{-1} \cdot X^Ty$
 
-Sometimes we can get the wrong result for $w$.
+Sometimes we can get an incorrect result for $w$.
 
-The problem that $(X^TX)^{-1}$ doesn't exist. Sometimes it happens when Matrix $X$ has duplicate columns (features).
+The problem arises when $(X^TX)^{-1}$ doesn't exist. This can happen when matrix $X$ has duplicate columns (features).
 
-Sometimes we don't get an error, because of the noise (for example, value in one column is '5' and in other '5.000000001'). And values are different.
+Sometimes we don't get an error due to small numerical noise (e.g., one column contains '5', and another contains '5.000000001').
 
 ### Problem Solution - Regularization
 
-The solution to this problem is to **add** a small number $\alpha$ to the diagonal of this Matrix $(X^TX)$:
+To solve this problem, **add** a small number $\alpha$ to the diagonal of the matrix $(X^TX)$:
+
 
 ![alpha](images/13_regularization_01_alpha.png)
 
-**Regularization** - controlling the weights that they don't grow to much.
+**Regularization** controls the weights to prevent them from growing too large.
 
-We add to out $(X^TX)$ matrix Identity Matrix multiplied by some small number (parameter). The large number we have on diagonal, the smaller values on Inversive Matrix.
+We add to our $(X^TX)$ matrix an Identity matrix multiplied by a small number (parameter). The larger the number on the diagonal, the smaller the values in the Inverse matrix.
 
 ![regularization](images/13_regularization_02_regularization.png)
 
 ### Regularization Implementation
 
-Slightly change function **def train_linear_regressio(X, y)**:
+Modify the function **train_linear_regression(X, y)** to include regularization:
 
 ```python
 def train_linear_regression_reg(X, y, r=0.001):
@@ -51,7 +52,7 @@ def train_linear_regression_reg(X, y, r=0.001):
     return w_full[0], w_full[1:]
 ```
 
-Train Model:
+Train the model with regularization:
 ```python
 X_train = prepare_X(df_train)
 w0, w = train_linear_regression_reg(X_train, y_train, r=0.01)
@@ -62,10 +63,10 @@ y_pred = w0 + X_val.dot(w)
 rmse(y_val, y_pred)
 ```
 
-Our result was improved:
+The result has improved:
 
 ![regularization_train](images/13_regularization_03_regularization_train.png)
 
-Thern we need to find what is the best value for the parameter r.
+The next step is to find the optimal value for the regularization parameter $r$.
 
 _[Back to the top](#regularization)_

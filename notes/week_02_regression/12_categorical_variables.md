@@ -7,15 +7,16 @@
 ## Categorical variables
 _[Video source](https://www.youtube.com/watch?v=vM3SqPNlStE&list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR&index=23)_
 
-**Categorical variables** are variables, that are categories, typically strings. In Pandas - 'object' type. THere are some categorical variables that are looks like numerical, but actually they are categorical (i.e., Number of doors).
+**Categorical variables** are variables that represent categories, typically as strings. In Pandas, these are of the 'object' type. Some categorical variables may appear numerical but are actually categorical (e.g., Number of Doors).
 
-### Categorical variables representation
 
-Represent categorical variables as a bunch of binary columns:
+### Representing Categorical Variables
+
+Categorical variables can be represented as a series of binary columns:
 
 ![cat_bin](images/12_categorical_variables_01_cat_bin.png)
 
-### Create binary columns
+### Creating Binary Columns
 
 For each distinct value of column 'number_of_doors' we create a column with binary value '1' or '0' if 'number_of_doors' equal to this value or not:
 
@@ -32,7 +33,7 @@ for v in [2, 3, 4]:
 
 ![bin_col](images/12_categorical_variables_02_bin_col.png)
 
-### Add categorical variables to Feature Matrix (number_of_doors)
+### Adding Categorical Variables to the Feature Matrix (number_of_doors)
 
 ```python
 def prepare_X(df):
@@ -67,22 +68,17 @@ rmse(y_val, y_pred)
 
 ![doors_res](images/12_categorical_variables_04_doors_res.png)
 
-The result was improoved only slightly. The number of doors feature is not that useful  .
+The result improved only slightly. The 'number_of_doors' feature is not that useful.
 
-### Add Make variable to Feature Matrix
+### Adding the 'Make' Variable to the Feature Matrix
 
-Get the most 5 popular Makes by count:
-```python
-df.make.value_counts().head()
-```
-
-Convert to list:
+Get the top 5 popular car makes and convert to list:
 ```python
 list(df.make.value_counts().head().index)
 >> ['chevrolet', 'ford', 'volkswagen', 'toyota', 'dodge']
 ```
 
-Modify **prepare_X(df)** function to add 5 columns with cars makes to Feature Matrix:
+Modify the **prepare_X(df)** function to include these top 5 makes:
 
 ```python
 makes = list(df.make.value_counts().head().index)
@@ -108,7 +104,7 @@ def prepare_X(df):
     return X
 ```
 
-Train with new Feauters:
+Train the model again and observe the improvement:
 ```python
 X_train = prepare_X(df_train)
 w0, w = train_linear_regression(X_train, y_train)
@@ -125,7 +121,7 @@ Result was improoved:
 
 ### Dictionary of top categorical variables
 
-Now create a dictionary for top categorical variables:
+Create a dictionary for top categorical variables:
 
 ```python
 categorilac_variables = [
