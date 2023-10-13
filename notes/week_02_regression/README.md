@@ -2,10 +2,10 @@
 >
 >Previous Week: [1: Introduction to Machine Learning](../week_01_introduction/README.md)
 >
->Next Week: [3: Machine Learning for Classification](../week_03_/README.md)
+>Next Week: [3: Machine Learning for Classification](../week_03_classification/README.md)
 
 
-## Week 2: Machine Learning for Classification
+## Week 2: Machine Learning for Regression
 
 ### Table of contents
 - [Car price prediction project](01_car_price_intro.md)
